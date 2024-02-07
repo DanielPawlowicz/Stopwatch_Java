@@ -77,7 +77,18 @@ public class Stopwatch implements ActionListener{
 		// TODO Auto-generated method stub
 		
 		if(e.getSource()==startButton) {
+			
 			start();
+			
+			if(started == false) {
+				started = true;
+				startButton.setText("Stop");
+			}
+			else {
+				started = false;
+				startButton.setText("Start");
+				stop();
+			}
 		}
 		
 	}
@@ -87,7 +98,7 @@ public class Stopwatch implements ActionListener{
 	}
 	
 	void stop() {
-		
+		timer.stop();
 	}
 
 	void reset() {
