@@ -91,17 +91,41 @@ public class Stopwatch implements ActionListener{
 			}
 		}
 		
+		if(e.getSource()==resetButton) {
+			
+			started = false;
+			startButton.setText("Start");
+			reset();
+			
+		}
+		
 	}
 	
 	void start() {
+		
 		timer.start();
 	}
 	
 	void stop() {
+		
 		timer.stop();
 	}
 
 	void reset() {
+		
+		timer.stop();
+		
+		elapsedTime = 0;
+		
+		seconds = 0;
+		minutes = 0;
+		hours = 0;
+		
+		seconds_string = String.format("%02d", seconds);
+		minutes_string = String.format("%02d", minutes);
+		hours_string = String.format("%02d", hours);
+		
+		timeLabel.setText(hours_string+":"+minutes_string+":"+seconds_string);
 		
 	}
 	
